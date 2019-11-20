@@ -1,0 +1,44 @@
+trigger:
+
+
+- master
+
+
+
+pool:
+
+
+  vmImage: 'ubuntu-latest'
+
+
+strategy:
+
+
+  matrix:
+
+
+    Python27:
+
+
+      python.version: '3.x'
+
+
+
+steps:
+
+
+- task: UsePythonVersion@0
+
+
+  inputs:
+
+
+    versionSpec: '$(python.version)'
+
+
+  displayName: 'Use Python $(python.version)'
+
+
+- script: python "pascal.py"
+
+
